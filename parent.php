@@ -33,7 +33,7 @@
 	<form action="parent.php" method="post" align = "center">
 
 <input type="submit" name="women" value="ICT For Women" >
-<input type="submit" name="intership" value="ICT Internships" >
+<input type="submit" name="internship" value="ICT Internships" >
 <input type="submit" name="programs" value="ICT programs" >
 <input type="submit" name="university" value="University"> 
 <input type="submit" name="career" value="Career"> 
@@ -56,6 +56,75 @@
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t<tr>\n";
     foreach ($line as $col_value) {
+        echo "\t\t<td><a href ='$col_value'></a> </td>\n";
+     }
+     echo "\t</tr>\n";
+    }
+    echo "</table>\n";
+	
+	// Free resultset
+      pg_free_result($result);
+
+// Closing connection
+     }
+	 
+	 if(isset($_POST['internship']))
+   {
+     $query  = "select * from internship";
+	 
+	 $result = pg_query($query) or die("Query failed:".pg_last_error());
+
+    echo "<table>\n";
+
+    while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td><a href ='$col_value'></a> </td>\n";
+     }
+     echo "\t</tr>\n";
+    }
+    echo "</table>\n";
+	
+	// Free resultset
+      pg_free_result($result);
+
+// Closing connection
+     }
+	 
+	 if(isset($_POST['university']))
+   {
+     $query  = "select * from university";
+	 
+	 $result = pg_query($query) or die("Query failed:".pg_last_error());
+
+    echo "<table>\n";
+
+    while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td> $col_value </td>\n";
+     }
+     echo "\t</tr>\n";
+    }
+    echo "</table>\n";
+	
+	// Free resultset
+      pg_free_result($result);
+
+// Closing connection
+     }
+	 
+	 if(isset($_POST['career']))
+   {
+     $query  = "select * from career";
+	 
+	 $result = pg_query($query) or die("Query failed:".pg_last_error());
+
+    echo "<table>\n";
+
+    while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
         echo "\t\t<td>$col_value</td>\n";
      }
      echo "\t</tr>\n";
@@ -63,12 +132,37 @@
     echo "</table>\n";
 	
 	// Free resultset
-pg_free_result($result);
+      pg_free_result($result);
 
 // Closing connection
+     }
+	 
+	 if(isset($_POST['programs']))
+   {
+     $query  = "select * from general_programs";
+	 
+	 $result = pg_query($query) or die("Query failed:".pg_last_error());
+
+    echo "<table>\n";
+
+    while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td>$col_value</td>\n";
+     }
+     echo "\t</tr>\n";
+    }
+    echo "</table>\n";
+	
+	// Free resultset
+      pg_free_result($result);
+
+// Closing connection
+     }
+	 
 pg_close($con);
 
-    }
+    
 	
 	?>
 	
