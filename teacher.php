@@ -30,11 +30,55 @@
     <div id="wrapper">
     <section>
     
+    <form action="parent.php" method="post" align = "center">
+
+
+<input type="submit" name="programs" value="ICT programs" >
+
+<br><br>
+</form>
+
+
+    <?php
+    require 'controller.php';
+    
+    if(isset($_POST['programs']))
+   {
+     $query  = "select * from general_programs";
+	 
+	 $result = pg_query($query) or die("Query failed:".pg_last_error());
+
+    echo  "<table border='1' align = 'center'>
+	     <tr>
+         <th>ICT Programs</th> 
+          
+     	</tr>\n";  
+
+    while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td>$col_value</td>\n";
+     }
+     echo "\t</tr>\n";
+    }
+    echo "</table>\n";
+	
+	// Free resultset
+      pg_free_result($result);
+
+// Closing connection
+     }
+	 
+pg_close($con);
+    
+    
+    ?>
+    
     </section>
     <footer>
-      <a href="http://twitter.com/niku1987007"> <img src="img/twitter-wrap.png" alt="twitter logo" class="social-icon"></a>
-      <a href="http://facebook.com/niku1987"> <img src="img/facebook-wrap.png" alt="facebook logo" class="social-icon"></a>
-      <p>&copy; 2013 Navdeep Singh.</p>
+       <img src="img/twitter-wrap.png" alt="twitter logo" class="social-icon">
+       <img src="img/facebook-wrap.png" alt="facebook logo" class="social-icon">
+      <p>&copy; 2014</p>
     </footer>
       </div>
   </body>
