@@ -51,7 +51,10 @@
 	 
 	 $result = pg_query($query) or die("Query failed:".pg_last_error());
 
-    echo "<table border='1' align = 'center'>\n";
+    echo "<table border='1' align = 'center'>
+	     <tr>
+         <th>Women Program</th>        
+        </tr>\n";
 
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t<tr>\n";
@@ -74,7 +77,10 @@
 	 
 	 $result = pg_query($query) or die("Query failed:".pg_last_error());
 
-    echo "<table border='1' align = 'center'>\n";
+    echo "<table border='1' align = 'center'>
+	     <tr>
+         <th>Internship Programs</th>        
+        </tr>\n";
 
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t<tr>\n";
@@ -97,7 +103,12 @@
 	 
 	 $result = pg_query($query) or die("Query failed:".pg_last_error());
 
-    echo "<table border='1' align = 'center'>\n";
+    echo "<table border='1' align = 'center'>
+	     <tr>
+         <th>University Name</th> 
+          <th>Website</th>  
+          <th>Contact</th>  		  
+        </tr>\n";
 
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t<tr>\n";
@@ -120,7 +131,13 @@
 	 
 	 $result = pg_query($query) or die("Query failed:".pg_last_error());
 
-    echo "<table border='1' align = 'center'>\n";
+    echo "<table border='1' align = 'center'>
+	     <tr>
+         <th>Career Code</th> 
+          <th>Job Role</th>  
+          <th>Average Salary</th> 
+           <th>Description</th>  
+     	</tr>\n";
 
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t<tr>\n";
@@ -143,7 +160,11 @@
 	 
 	 $result = pg_query($query) or die("Query failed:".pg_last_error());
 
-    echo "<table border='1' align = 'center'>\n";
+    echo  "<table border='1' align = 'center'>
+	     <tr>
+         <th>ICT Programs</th> 
+          
+     	</tr>\n";  
 
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t<tr>\n";
