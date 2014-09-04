@@ -51,22 +51,23 @@
 	 
 	 $result = pg_query($query) or die("Query failed:".pg_last_error());
 
-    echo "<table>\n";
+    echo "<table border='1' align = 'center'>
+   <tr>
+   <th>Women Program</th>
+   </tr>";
 
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-    echo "\t<tr>\n";
-    foreach ($line as $col_value) {
-        echo "\t\t<td><a href ='$col_value'></a> </td>\n";
-     }
-     echo "\t</tr>\n";
-    }
+    echo "<tr>";
+    echo "<td>" . "<a href =". "\"".$line['women_program_link'] >."\"" ."</a>" . "</td>";
+    echo "</tr>";
+   }
     echo "</table>\n";
 	
 	// Free resultset
       pg_free_result($result);
 
-// Closing connection
      }
+	 
 	 
 	 if(isset($_POST['internship']))
    {
