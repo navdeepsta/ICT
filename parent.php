@@ -58,7 +58,7 @@
 
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "<tr>";
-    echo "<td>" . "<a href =". "\"".$line['women_program_link'] >."\"" ."</a>" . "</td>";
+    echo "<td>" .$line['women_program_link'] > . "</td>";
     echo "</tr>";
    }
     echo "</table>\n";
