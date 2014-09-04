@@ -12,6 +12,19 @@
       }
       </style>
       
+      <script>
+  (function() {
+    var cx = '015937954157256065651:dl1v6f2qvzs';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+      
   </head>
   <body>
     <header>
@@ -27,6 +40,8 @@
         </ul>
       </nav>
     </header>
+    
+    <gcse:search></gcse:search>
     <div id="wrapper">
     <section>
     
@@ -59,7 +74,7 @@
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     echo "\t<tr>\n";
     foreach ($line as $col_value) {
-        echo "\t\t<td>$col_value'></td>\n";
+        echo "\t\t<td>$col_value</td>\n";
      }
      echo "\t</tr>\n";
     }
@@ -154,38 +169,9 @@
 // Closing connection
      }
 	 
-	 if(isset($_POST['programs']))
-   {
-     $query  = "select * from general_programs";
-	 
-	 $result = pg_query($query) or die("Query failed:".pg_last_error());
-
-    echo  "<table border='1' align = 'center'>
-	     <tr>
-         <th>ICT Programs</th> 
-          
-     	</tr>\n";  
-
-    while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-    echo "\t<tr>\n";
-    foreach ($line as $col_value) {
-        echo "\t\t<td>$col_value</td>\n";
-     }
-     echo "\t</tr>\n";
-    }
-    echo "</table>\n";
-	
-	// Free resultset
-      pg_free_result($result);
-
-// Closing connection
-     }
-	 
 pg_close($con);
 
-    
-	
-	?>
+    	?>
 	
 	
 	
